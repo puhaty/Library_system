@@ -80,6 +80,11 @@ public class Library {
         }
     }
 
+    /**
+     * funkcja usuwa po nazwie książki
+     * @param catalog - nazwa katalogu
+     * @param tittle - tytuł książki
+     */
     public void removeBook(Catalog catalog, String tittle) {
         if (isBook(catalog, tittle)) {
             Book book = getBook(catalog, tittle);
@@ -88,6 +93,11 @@ public class Library {
         }
     }
 
+    /**
+     * funkcja usuwa przekazany obiekt książki
+     * @param catalog - nazwa katalogu
+     * @param book - przekazanie obiektu książki do usunięcia
+     */
     public void removeBook(Catalog catalog, Book book) {
         if (isBook(catalog, book)) {
             Section section = getSection(catalog, book.getSection());
@@ -102,7 +112,7 @@ public class Library {
         } else {
             System.out.println();
             for (Section i : catalog) {
-                if (i == null) break; //wyrzucenie działu: STOP, który został utworzony tylko dla zatrzymania iteracji
+                if (i == null) break;           //zatrzymanie iteracji
                 if (i.equals(catalog.getRoot())) {
                     System.out.println(i);
                 } else {
@@ -221,7 +231,7 @@ public class Library {
         } else {
             //System.out.println();
             for (Section i : catalog) {
-                if (i == null) break; //wyrzucenie działu: STOP, który został utworzony tylko dla zatrzymania iteracji
+                if (i == null) break; //zatrzymanie iteracji
                 if (i.equals(catalog.getRoot())) {
                     printWriter.println(i);
                     for (Book b : i.getBooks()) {

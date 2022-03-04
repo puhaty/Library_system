@@ -20,7 +20,7 @@ public class Catalog implements Iterable<Section> {
     }
 
     /**
-     *funkcja dodaje główne działy do głównego węzła: root
+     * funkcja dodaje główne działy do głównego węzła: root
      * @param name - nazwa dodawanego działu
      */
     public void addSection(String name) {
@@ -32,6 +32,11 @@ public class Catalog implements Iterable<Section> {
         }
     }
 
+    /**
+     * funkcja dodaje główne działy do głównego węzła: root + jest możliwość nie wypisywania komunikatu
+     * @param name - nazwa dodawanego działu
+     * @param print - zmienna informująca czy wypisywać komunikat
+     */
     public void addSection(String name, boolean print) {
         if (!isSection(name)) {
             Section newSection = new Section(name);
@@ -61,6 +66,12 @@ public class Catalog implements Iterable<Section> {
         }
     }
 
+    /**
+     *funkcja dodaje nowy podkatalog do istniejącego już katalogu z możliwośćią niewypisywania komunikatu
+     * @param sectionName - nawa działu do którego dodajemy pododdział
+     * @param subsectionName - nazwa pododdziału
+     * @param print - zmienna informująca czy wypisywać komunikat
+     */
     public void addSubsection(String sectionName, String subsectionName, boolean print) {
         if (!isSection(subsectionName)) {
             Section newSubsection = new Section(subsectionName);
@@ -229,72 +240,6 @@ public class Catalog implements Iterable<Section> {
             }
         }
         return null;
-        /*Section current = root;
-        List<Section> currents = null;
-        int level = 0;
-        boolean stopIteration = true, returnIteration = false, nextChildren = false;
-
-        while (current != null) {
-            if(current.getName().equals(sectionName) && current == root) { //sprawddzanie i dodanie kolejnego poddodzialu, jesłi dodajemy do roota
-                return current;
-            }
-
-            if (current == root) {
-                if (current.getChildren().size() > 0) {
-                    currents = current.getChildren();
-                    current = currents.get(0);
-                    level++;
-                } else {
-                    return null;
-                }
-            }
-            if (!isEmpty()) {
-                while (true) {
-
-                    if (currents.size() > 0 && !returnIteration && !nextChildren) {
-                        nextChildren = true;
-                        if (current.getName().equals(sectionName)) { //sprawddzanie i dodanie kolejnego poddodzialu
-                            return current;
-                        }
-                    }
-                    else if (current.getChildren().size() > 0 && !returnIteration) { //wejście w kolejne dziecko od lewej
-                        nextChildren = false;
-                        currents = current.getChildren();
-                        current = currents.get(0);
-                        level++;
-                    }
-                    else if (currents.size() > 1 && !current.equals(currents.get(currents.size() - 1))){ //przejście na kolejne dzieckood lewej //current != currents.get(currents.size() - 1) to sprawdza, czy current nie jest już ostatnim elementem na liście, wtedy przechodzimy do rodzica
-                        returnIteration = false;
-                        nextChildren = false;
-                        int count = 0;
-                        for (Section temp : currents) { //wyszukanie poprzedniej lokalizacji działu na podstawie pozycji rodzica
-                            if (current.equals(temp)) {
-                                current = currents.get(++count);         //przejście na kolejnego rodzica
-                                break;
-                            }
-                            count++;
-                        }
-                    } else {               //powrót do rodzica
-                        if (level > 0) {
-                            level--;
-                            if (level == 0) { //nic nie znaleziono
-                                //System.out.println("\nWprowadzono Błędne dane, Nie ma takiego działu!!!");
-                                stopIteration = false;
-                                break;
-                            } else {
-                                current = current.getParent();
-                                currents = current.getParent().getChildren();
-                                returnIteration = true; // zmienna informuje, że current został przypisany do rodzica
-                            }
-                        }
-                    }
-                }
-            }
-            if (!stopIteration) break;
-        }
-        return null;
-
-         */
     }
 
     public void showSections() {
@@ -309,41 +254,6 @@ public class Catalog implements Iterable<Section> {
 
     public boolean isSection(String sectionName) {
         if (getSection(sectionName) != null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void showBooks() {
-        for (Section s : sections) {
-            books.addAll(s.getBooks());
-        }
-        if (books.size() > 0) {
-            for (Book b : books) {
-                System.out.println(b);
-            }
-        } else {
-            System.out.println("Katalog nie zawiera książek");
-        }
-    }
-
-    public Book getBook(String tittle) {
-        for (Section s : sections) {
-            books.addAll(s.getBooks());
-        }
-        if (books.size() > 0) {
-            for (Book b : books) {
-                if (b.getTitle().equals(tittle)) {
-                    return b;
-                }
-            }
-        }
-        return null;
-    }
-
-    public boolean isBook(String tittle) {
-        if (getBook(tittle) != null) {
             return true;
         } else {
             return false;
