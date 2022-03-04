@@ -12,7 +12,7 @@ public class MainTUI {
 
             println("Witaj w programie do obsługi biblioteki");
             println("Menu:");
-            printlnTab("0 : Wyjdź z programu");
+            printlnTab("0 : Wyjdź z programu ");
             printlnTab("1 : Pokaż katalog"); //Done
             printlnTab("2 : Pokaż katalog z książkami"); //Done
             printlnTab("3 : Dodaj pozycję");     //Done
