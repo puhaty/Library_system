@@ -1,0 +1,94 @@
+root:Książki
+Książki:Science Fiction
+Książki:Fantasy
+Książki:Kryminalne
+Książki:Naukowe
+Książki:Sportowe
+Książki:Romans
+Książki:Przygodowe
+Książki:Biograficzne
+Książki:Dramat
+Książki:Lektury
+Książki:Poezja
+Książki:Publicystyczne
+Książki:Historyczne
+Książki:Przyrodnicze
+Książki:Psychologiczne
+Książki:Prawnicze
+Science Fiction:Twarde Science Fiction
+Science Fiction:Miękkie Science Fiction
+Fantasy:Hard Fantasy
+Fantasy:Light Fantasy
+Fantasy:Dark Fantasy
+Fantasy:Bajki
+Fantasy:Fikcja o superbohaterach
+Kryminalne:Whodunit
+Kryminalne:Locked room
+Kryminalne:Odcięcie od świata
+Kryminalne:Kryminał z domostwem
+Kryminalne:Kryminał sielankowy
+Kryminalne:Zbrodnia sprzed lat
+Naukowe:Geografia
+Naukowe:Biologia
+Naukowe:Medycyna
+Sportowe:Sporty zespołowe
+Sportowe:Sporty indywidualne
+Sportowe:Sporty ekstremalne
+Sporty zespołowe:Piłka nożna
+Sporty zespołowe:Siatkówka
+Sporty zespołowe:Koszykówka
+Sporty indywidualne:Bieganie
+Sporty indywidualne:Pływanie
+Sporty ekstremalne:Wspinaczka wysokogórska
+Sporty ekstremalne:Boks
+Romans:Współczesny
+Romans:Historyczny
+Romans:Kryminalny
+Romans:Fantastyczny
+Romans:Religijny
+Lektury:Szkoła podstawowa
+Lektury:Liceum
+Liceum:Poziom podstawowy
+Lektury:Liceum
+Liceum:Poziom rozszerzony
+Dramat:Tragedia
+Dramat:Komedia
+Dramat:melodramat
+Poezja:Sonet
+Poezja:Bajka
+Poezja:Tren
+Poezja:Satyra
+Poezja:Fraszka
+Poezja:Ballada
+Poezja:Pieśń
+Publicystyczne:Felieton
+Publicystyczne:Reportaż
+Publicystyczne:Esej
+Publicystyczne:Wywiad
+Historyczne:Polska
+Historyczne:świat
+Przyrodnicze:Lasy
+Przyrodnicze:Ogrodnicze
+Pieśń:Xd
+Liceum:Dx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
