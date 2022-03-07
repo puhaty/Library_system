@@ -20,42 +20,6 @@ public class Library {
         }
     }
 
-    public void createTree(String name) {
-        Catalog catalog = new Catalog(name);
-        catalogs.add(catalog);
-        catalog.addSection("Science fiction");
-        catalog.addSection("Obyczajowe");
-        catalog.addSection("Kryminalne");
-        catalog.addSection("Naukowe");
-        catalog.addSection("Sportowe");
-        catalog.addSection("Poezja");
-        catalog.addSection("Lektury");
-        catalog.addSection("Psychologiczne");
-        catalog.addSection("Dramat");
-            //pododdziały
-        catalog.addSubsection("Książki", "Przygodowe");
-        catalog.addSubsection("Obyczajowe", "Romanse");
-        catalog.addSubsection("Science fiction", "Przyszłość");
-        catalog.addSubsection("Science fiction", "Starożytność");
-        catalog.addSubsection("Przyszłość", "Kosmos");
-        catalog.addSubsection("Przyszłość", "Ziemia");
-        catalog.addSubsection("Przyszłość", "Księżyc");
-        catalog.addSubsection("Ziemia", "Nie wiem");
-        catalog.addSubsection("Ziemia", "Wiem");
-        catalog.addSubsection("Księżyc", "Xd");
-        catalog.addSubsection("Naukowe", "Biologia");
-        catalog.addSubsection("Naukowe", "Geografia");
-        catalog.addSubsection("Naukowe", "Historia");
-        catalog.addSubsection("Geografia", "Morza");
-        catalog.addSubsection("Geografia", "Mapy");
-        catalog.addSubsection("Asdfsa", "Asdw");
-        catalog.editSection("Geografia", "Dupa");
-        catalog.replaceSection("Przyszłość", "Nie wiem");
-        catalog.replaceSection("Dupa", "Starożytność");
-        catalog.replaceSection("Książki", "Mapy");
-        catalog.replaceSection("Mapy", "Książki");
-    }
-
     public void addNewBook(Catalog catalog, String sectionName, long isbn, String title, String author) {
         boolean ifAdded = false;
         for (Section i : catalog) {
