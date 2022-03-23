@@ -455,7 +455,7 @@ public class MainTUI {
                                             catalog = library.getCatalog(catalogName);
                                             println("Podaj ścieżkę do pliku: ");
                                             fileName = in.nextLine();
-                                            library.addToCatalogFromList(":", fileName, catalog);
+                                            library.readCatalogFromFile(":", fileName, catalog);
                                         } else {
                                             println("wprowadzono niepoprawną nazwę: " + catalogName);
                                         }
@@ -464,7 +464,7 @@ public class MainTUI {
                                 case "b":
                                     println("Podaj ścieżkę do pliku: ");
                                     fileName = in.nextLine();
-                                    library.addCatalog(library.addToCatalogFromList(":", fileName));
+                                    library.addCatalog(library.readCatalogFromFile(":", fileName));
                                     break;
                                 case "c":
                                     println("Katalogi w bibliotece: ");
@@ -476,7 +476,7 @@ public class MainTUI {
                                             catalog = library.getCatalog(catalogName);
                                             println("Podaj ścieżkę do pliku: ");
                                             fileName = in.nextLine();
-                                            library.addBooksFromList(":", fileName, catalog);
+                                            library.readBooksFromFile(":", fileName, catalog);
                                         } else {
                                             println("wprowadzono niepoprawną nazwę: " + catalogName);
                                         }
