@@ -12,7 +12,7 @@ public class MainTUI {
 
             println("Witaj w programie do obsługi biblioteki");
             println("Menu:");
-            printlnTab("0 : Wyjdź z programu");
+            printlnTab("0 : Wyjdź z programu ");
             printlnTab("1 : Pokaż katalog"); //Done
             printlnTab("2 : Pokaż katalog z książkami"); //Done
             printlnTab("3 : Dodaj pozycję");     //Done
@@ -455,7 +455,7 @@ public class MainTUI {
                                             catalog = library.getCatalog(catalogName);
                                             println("Podaj ścieżkę do pliku: ");
                                             fileName = in.nextLine();
-                                            library.addToCatalogFromList(":", fileName, catalog);
+                                            library.readCatalogFromFile(":", fileName, catalog);
                                         } else {
                                             println("wprowadzono niepoprawną nazwę: " + catalogName);
                                         }
@@ -464,7 +464,7 @@ public class MainTUI {
                                 case "b":
                                     println("Podaj ścieżkę do pliku: ");
                                     fileName = in.nextLine();
-                                    library.addCatalog(library.addToCatalogFromList(":", fileName));
+                                    library.addCatalog(library.readCatalogFromFile(":", fileName));
                                     break;
                                 case "c":
                                     println("Katalogi w bibliotece: ");
@@ -476,7 +476,7 @@ public class MainTUI {
                                             catalog = library.getCatalog(catalogName);
                                             println("Podaj ścieżkę do pliku: ");
                                             fileName = in.nextLine();
-                                            library.addBooksFromList(":", fileName, catalog);
+                                            library.readBooksFromFile(":", fileName, catalog);
                                         } else {
                                             println("wprowadzono niepoprawną nazwę: " + catalogName);
                                         }
@@ -500,9 +500,10 @@ public class MainTUI {
                     case "7": //zapis do pliku
                         String option5 = null;
                         println("Opcje: ");
-                        printlnTab("a : zapis struktury katalogu z książkami do pliku");
-                        printlnTab("b : zapis stanu katalogu do pliku(plik z separatorami)");
-                        printlnTab("c : zapis książek do pliku(z separatorami)");
+                        printlnTab("a : zapis struktury katalogu do pliku");
+                        printlnTab("b : zapis struktury katalogu z książkami do pliku");
+                        printlnTab("c : zapis stanu katalogu do pliku(plik z separatorami)");
+                        printlnTab("d : zapis książek do pliku(z separatorami)");
                         printlnTab("m : menu");
                         printlnTab("q : Powrót");
                         do {
@@ -519,13 +520,29 @@ public class MainTUI {
                                             catalog = library.getCatalog(catalogName);
                                             println("Podaj ścieżkę do pliku: ");
                                             fileName = in.nextLine();
-                                            library.saveCatalogStructureWithBooksToFile(fileName, catalog);
+                                            library.saveCatalogStructureToFile(fileName, catalog);
                                         } else {
                                             println("wprowadzono niepoprawną nazwę: " + catalogName);
                                         }
                                     }
                                     break;
                                 case "b":
+                                    println("Katalogi w bibliotece: ");
+                                    library.showCatalogs();
+                                    if (library.getCatalogs().size() > 0) {
+                                        println("podaj nazwę katalogu:");
+                                        catalogName = in.nextLine();
+                                        if (library.isCatalog(catalogName)) {
+                                            catalog = library.getCatalog(catalogName);
+                                            println("Podaj ścieżkę do pliku: ");
+                                            fileName = in.nextLine();
+                                            library.saveCatalogStructureWithBooksToFile(fileName, catalog);
+                                        } else {
+                                            println("wprowadzono niepoprawną nazwę: " + catalogName);
+                                        }
+                                    }
+                                    break;
+                                case "c":
                                     println("Katalogi w bibliotece: ");
                                     library.showCatalogs();
                                     if (library.getCatalogs().size() > 0) {
@@ -541,7 +558,7 @@ public class MainTUI {
                                         }
                                     }
                                     break;
-                                case "c":
+                                case "d":
                                     println("Katalogi w bibliotece: ");
                                     library.showCatalogs();
                                     if (library.getCatalogs().size() > 0) {
@@ -559,9 +576,10 @@ public class MainTUI {
                                     break;
                                 case "m":
                                     println("Opcje: ");
-                                    printlnTab("a : zapis struktury katalogu z książkami do pliku");
-                                    printlnTab("b : zapis stanu katalogu do pliku(plik z separatorami)");
-                                    printlnTab("c : zapis książek do pliku(z separatorami)");
+                                    printlnTab("a : zapis struktury katalogu do pliku");
+                                    printlnTab("b : zapis struktury katalogu z książkami do pliku");
+                                    printlnTab("c : zapis stanu katalogu do pliku(plik z separatorami)");
+                                    printlnTab("d : zapis książek do pliku(z separatorami)");
                                     printlnTab("m : menu");
                                     printlnTab("q : Powrót");
                                     break;
