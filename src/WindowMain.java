@@ -1,6 +1,9 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class WindowMain extends JFrame{
     private JPanel panelMain;
@@ -23,12 +26,23 @@ public class WindowMain extends JFrame{
     private JPanel panel1;
     private JPanel panel2;
     private JPanel panel3;
+    private WindowChooseCatalog windowAdd;
+    private WindowReadCatalog windowReadCatalog;
+    private JFileChooser fc;
+    private Library library;
 
     public WindowMain() {
         super("projekt systemu bibliotecznego");
         this.setContentPane(panelMain);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
+
+        library = new Library();
+
+        fc = new JFileChooser();
+        fc.setCurrentDirectory(new File("/home/puhaty/Documents/Java/projects/library_system"));
+        fc.addChoosableFileFilter(new FileNameExtensionFilter("Pliki tekstowe","txt"));
+        fc.addChoosableFileFilter(new FileNameExtensionFilter("Pliki csv","csv"));
 
         buttonClose.addActionListener(new ActionListener() {
             @Override
@@ -47,21 +61,26 @@ public class WindowMain extends JFrame{
         buttonChooseCatalog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    windowAdd = new WindowChooseCatalog(library);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
         buttonReadFromFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                readFromFile(fc);
             }
         });
 
         buttonSaveToFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                fc.showOpenDialog(panelMain);
+                saveFile(fc);
             }
         });
 
@@ -94,5 +113,21 @@ public class WindowMain extends JFrame{
                 panelCard.revalidate();
             }
         });
+    }
+
+    private void readFromFile(JFileChooser fc) {
+        windowReadCatalog = new WindowReadCatalog(library);
+        //fc.showOpenDialog(panelMain);
+        //readFile(fc);
+    }
+
+    private void saveFile(JFileChooser fc) {
+        File file = fc.getSelectedFile();
+
+    }
+
+    private void readFile(JFileChooser fc) {
+        File file = fc.getSelectedFile();
+        //System.out.println(file.getName());
     }
 }
