@@ -522,7 +522,7 @@ public class Panels {
                             +  chooser.getSelectedFile());
                     String fileName = chooser.getSelectedFile().getPath();
                     try {
-                        library.addCatalog(library.addToCatalogFromList(":", fileName));
+                        library.addCatalog(library.readCatalogFromFile(":", fileName));
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

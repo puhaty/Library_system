@@ -155,36 +155,6 @@ public class Library {
         }
     }
 
-    public void saveCatalogStructureToFile(String fileName, Catalog catalog) throws IOException {
-        fileOperator.saveCatalogStructureToFile(fileName, catalog);
-    }
-
-    public void saveCatalogStructureWithBooksToFile(String fileName, Catalog catalog) throws IOException {
-        fileOperator.saveCatalogStructureWithBooksToFile(fileName, catalog);
-    }
-
-    public void saveCatalogListToFile(String fileName, Catalog catalog) throws IOException {
-        fileOperator.saveCatalogListToFile(fileName, catalog);
-    }
-
-    public void saveBookListToFile(String fileName, Catalog catalog) throws IOException {
-        fileOperator.saveBookListToFile(fileName, catalog);
-    }
-
-    public void readCatalogFromFile(String separator, String fileName, Catalog catalog) throws IOException {
-        fileOperator.addToCatalogFromList(separator, fileName, catalog);
-    }
-
-    public Catalog readCatalogFromFile(String separator, String fileName) throws IOException {
-        return fileOperator.addToCatalogFromList(separator, fileName);
-    }
-
-    public void readBooksFromFile(String separator, String fileName, Catalog catalog) throws IOException {
-        fileOperator.addBooksFromList(separator, fileName, catalog);
-    }
-
-
-
     public List<Book> searchBookForAuthor(String author, Catalog catalog) {
         List<Book> list = new ArrayList<>();
         for (Section s : catalog) {
@@ -398,5 +368,33 @@ public class Library {
             }
         }
         return false;
+    }
+
+    public void saveCatalogStructureToFile(String fileName, Catalog catalog) throws IOException {
+        fileOperator.saveCatalogStructureToFile(fileName, catalog);
+    }
+
+    public void saveCatalogStructureWithBooksToFile(String fileName, Catalog catalog) throws IOException {
+        fileOperator.saveCatalogStructureWithBooksToFile(fileName, catalog);
+    }
+
+    public void saveCatalogListToFile(String fileName, Catalog catalog) throws IOException {
+        fileOperator.saveCatalogListToFile(fileName, catalog);
+    }
+
+    public void saveBookListToFile(String fileName, Catalog catalog) throws IOException {
+        fileOperator.saveBookListToFile(fileName, catalog);
+    }
+
+    public void readCatalogFromFile(String separator, String fileName, Catalog catalog) throws IOException {
+        fileOperator.addToCatalogFromList(separator, fileName, catalog);
+    }
+
+    public Catalog readCatalogFromFile(String separator, String fileName) throws IOException {
+        return fileOperator.addToCatalogFromList(separator, fileName);
+    }
+
+    public void readBooksFromFile(String separator, String fileName, Catalog catalog) throws IOException {
+        fileOperator.addBooksFromList(separator, fileName, catalog);
     }
 }
