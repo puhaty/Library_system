@@ -14,6 +14,7 @@ public class WindowChooseCatalog extends JFrame{
     private Library library;
     private List<Catalog> catalogs;
     private DefaultListModel<Catalog> model;
+    private Catalog catalog;
 
     public WindowChooseCatalog(Library library) throws IOException {
 
@@ -29,25 +30,17 @@ public class WindowChooseCatalog extends JFrame{
         catalogs = library.getCatalogs();
         model = new DefaultListModel<>();
         model.addAll(catalogs);
-/*
-        for (Catalog c : library.getCatalogs()) {
-            catalogs.add(c.getName());
-        }
-*/
+
         listCatalog.setModel(model);
 
-        listCatalog.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-
-            }
+        listCatalog.addListSelectionListener(e -> {
+            catalog = listCatalog.getSelectedValue();
         });
 
-        buttonClose.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        buttonClose.addActionListener(e -> dispose());
+    }
+
+    public Catalog getCatalog() {
+        return catalog;
     }
 }

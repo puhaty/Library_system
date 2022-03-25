@@ -17,12 +17,7 @@ public class WindowReadCatalog extends JFrame{
 
 
 
-        buttonClose.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        buttonClose.addActionListener(e -> dispose());
     }
 
 

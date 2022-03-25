@@ -44,12 +44,7 @@ public class WindowMain extends JFrame{
         fc.addChoosableFileFilter(new FileNameExtensionFilter("Pliki tekstowe","txt"));
         fc.addChoosableFileFilter(new FileNameExtensionFilter("Pliki csv","csv"));
 
-        buttonClose.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-            }
-        });
+        buttonClose.addActionListener(e -> dispose());
 
         buttonSave.addActionListener(new ActionListener() {
             @Override
