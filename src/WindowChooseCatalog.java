@@ -1,8 +1,8 @@
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,10 @@ import java.util.List;
 public class WindowChooseCatalog extends JFrame{
     private JButton buttonClose;
     private JPanel panelChoose;
-    private JList<Object> listCatalog;
+    private JList<Catalog> listCatalog;
     private Library library;
-    private List<String> catalogs;
+    private List<Catalog> catalogs;
+    private DefaultListModel<Catalog> model;
 
     public WindowChooseCatalog(Library library) throws IOException {
 
@@ -25,10 +26,22 @@ public class WindowChooseCatalog extends JFrame{
 
         library.addCatalog(library.readCatalogFromFile(":", "files/catalogToRead.txt"));
 
+        catalogs = library.getCatalogs();
+        model = new DefaultListModel<>();
+        model.addAll(catalogs);
+/*
         for (Catalog c : library.getCatalogs()) {
             catalogs.add(c.getName());
         }
-        listCatalog.setListData(catalogs.toArray());
+*/
+        listCatalog.setModel(model);
+
+        listCatalog.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+
+            }
+        });
 
         buttonClose.addActionListener(new ActionListener() {
             @Override
