@@ -61,6 +61,7 @@ public class WindowMain extends JFrame{
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+                System.out.println(windowAdd.getCatalog());
             }
         });
 

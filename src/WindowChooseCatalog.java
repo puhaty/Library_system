@@ -35,6 +35,7 @@ public class WindowChooseCatalog extends JFrame{
 
         listCatalog.addListSelectionListener(e -> {
             catalog = listCatalog.getSelectedValue();
+            dispose();
         });
 
         buttonClose.addActionListener(e -> dispose());
